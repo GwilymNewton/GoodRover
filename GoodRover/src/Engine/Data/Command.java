@@ -43,6 +43,12 @@ public class Command {
     public void setTarget(Target target) {
         this.target = target;
     }
+
+    @Override
+    public String toString() {
+        return "Action=" +action.toString()+" Item=" +item.toString()+ " Target= " +target.toString();
+    }
+    
     
     
 }
