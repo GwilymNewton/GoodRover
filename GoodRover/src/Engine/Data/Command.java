@@ -48,6 +48,30 @@ public class Command {
     public String toString() {
         return "Action=" +action.toString()+" Item=" +item.toString()+ " Target= " +target.toString();
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+        if (getClass() != obj.getClass()) {
+            return false;
+        }
+        final Command other = (Command) obj;
+        if (this.action != other.action) {
+            return false;
+        }
+        if (this.item != other.item) {
+            return false;
+        }
+        if (this.target != other.target) {
+            return false;
+        }
+        return true;
+    }
     
     
     
