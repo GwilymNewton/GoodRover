@@ -10,5 +10,5 @@ package Engine.Data;
  * @author gwilymnewton
  */
 public enum Item {
-    
+    NullItem;
 }
