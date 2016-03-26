@@ -11,6 +11,10 @@ package Engine.Data;
  */
 public enum Target {
  
-    NullTarget;
+    NullTarget,
+    North,
+    South,
+    East,
+    West;
     
 }

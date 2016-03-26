@@ -10,5 +10,7 @@ package Engine.Data;
  * @author gwilymnewton
  */
 public enum Action {
-    NullAction;
+    NullAction,
+    Go,
+    Inventory
 }
