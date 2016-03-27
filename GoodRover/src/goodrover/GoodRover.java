@@ -7,6 +7,7 @@ package goodrover;
 
 import Engine.Data.Command;
 import Engine.Data.ConsoleIO;
+import Engine.Debug.Debugger;
 import Engine.Interpretor.Interpretor;
 
 /**
@@ -19,7 +20,18 @@ public class GoodRover {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-       ConsoleIO console= ConsoleIO.getConsoleIO();
+       
+        //Fast and nasty need to make an actual Param Util later
+        if (args!=null & args.length>=1)
+        {
+            Debugger.setDebug_level(Integer.parseInt(args[0]));
+        }
+        else
+        {
+          Debugger.setDebug_level(1)  ;
+        }
+        
+        ConsoleIO console= ConsoleIO.getConsoleIO();
        
        while(true)
        {

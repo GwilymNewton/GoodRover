@@ -11,16 +11,35 @@ package Engine.Debug;
  */
 public class Debugger {
 
-public static final int debug_level =5;  
-//0= nothing 5 = evethingthing
+    /**
+     * 0= nothing 
+     * 5 = everything
+     */
+    public static int debug_level =0;  
+//
     
-public static void debug(int level, String text)
+    /**
+     *
+     * @param level Level of debuging at which to show this data
+     * @param text  What to output
+     */
+    public static void debug(int level, String text)
 {
     if (level <= debug_level)
     {
         System.out.println(text);
     }
 }
+
+    /**
+     *
+     * @param debug_level The system wide level of debug output.
+     */
+    public static void setDebug_level(int debug_level) {
+        Debugger.debug_level = debug_level;
+    }
+    
+    
 
     
 }
