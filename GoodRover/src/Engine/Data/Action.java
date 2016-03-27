@@ -12,5 +12,7 @@ package Engine.Data;
 public enum Action {
     NullAction,
     Go,
-    Inventory
+    Inventory,
+    Drop,
+    Hit
 }

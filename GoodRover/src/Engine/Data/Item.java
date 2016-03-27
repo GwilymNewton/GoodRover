@@ -10,5 +10,6 @@ package Engine.Data;
  * @author gwilymnewton
  */
 public enum Item {
-    NullItem;
+    NullItem,
+    Axe, //Test Item
 }

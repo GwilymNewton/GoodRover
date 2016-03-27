@@ -12,9 +12,10 @@ package Engine.Data;
 public enum Target {
  
     NullTarget,
+    TestTarget, // For testing only 
     North,
     South,
     East,
-    West;
+    West
     
 }
