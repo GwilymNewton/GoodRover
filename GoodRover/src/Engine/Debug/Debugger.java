@@ -5,6 +5,8 @@
  */
 package Engine.Debug;
 
+import Engine.Data.SaveLoad.Settings;
+
 /**
  *
  * @author gwilymnewton
@@ -15,7 +17,7 @@ public class Debugger {
      * 0= nothing 
      * 5 = everything
      */
-    public static int debug_level =0;  
+    public static int debug_level = Settings.GetSettingInt("debug_level");  
 //
     
     /**

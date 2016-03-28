@@ -11,11 +11,12 @@ import java.util.HashMap;
  *
  * @author gwilymnewton
  */
-public class Settings {
+public abstract class Settings {
     //First pass, this should be coded to a write though hashmap when I have time
     
     private static HashMap<String,String> settings =new HashMap<String,String>() {{
     put("inventory_size","10");
+    put("debug_level","5");  
     }};
 
     /**
@@ -23,7 +24,7 @@ public class Settings {
      * @param attribute name of the attribute required
      * @return value if found, else null
      */
-public String GetSettingString(String attribute)
+public static String GetSettingString(String attribute)
 {
     if (settings.keySet().contains(attribute))
     {
@@ -35,7 +36,7 @@ public String GetSettingString(String attribute)
     }
 }
 
-public int GetSettingInt(String attribute)
+public static int GetSettingInt(String attribute)
 {
     if (settings.keySet().contains(attribute))
     {
