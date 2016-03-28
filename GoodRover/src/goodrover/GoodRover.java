@@ -26,10 +26,7 @@ public class GoodRover {
         {
             Debugger.setDebug_level(Integer.parseInt(args[0]));
         }
-        else
-        {
-          Debugger.setDebug_level(1)  ;
-        }
+        
         
         ConsoleIO console= ConsoleIO.getConsoleIO();
        
