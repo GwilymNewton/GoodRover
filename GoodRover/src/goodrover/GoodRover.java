@@ -6,7 +6,7 @@
 package goodrover;
 
 import Engine.Data.Command;
-import Engine.Data.ConsoleIO;
+import Engine.Interpretor.ConsoleIO;
 import Engine.Debug.Debugger;
 import Engine.Interpretor.Interpretor;
 
