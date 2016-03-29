@@ -10,9 +10,9 @@ package Engine.Data;
  * @author gwilymnewton
  */
 public class GameMap {
-            private int height = 64; //default 
-            private int width = 64; //default 
-            private Location[][] game_map = new Location[height][width];
+            private int heightY = 64; //default 
+            private int widthX = 64; //default 
+            private Location[][] game_map = new Location[heightY][widthX];
             private int locationX = 0;
             private int locationY =0;
 
@@ -22,30 +22,40 @@ public class GameMap {
 
     public GameMap(int height, int width) 
     {
-        this.height = height;
-        this.width = width ;  
-        game_map = new Location[height][width];
+        this.heightY = height;
+        this.widthX = width ;  
+        game_map = new Location[width][height];
     }
     
-    public void SetLocation(Location local, int x, int y)
+    public boolean SetLocation(Location local, int x, int y)
     {
-     if (x>0 && x<width)
+     if ((x<0 || x>=widthX) || (y<0 || y>=heightY) || (local == null))
      {
          //throw out of bounds exception
-     }
-     if (y>0 && y<height)
-     {
-         //throw out of bounds exception
-     }
-     if (local != null)
-     {
-         // throw null pointer exception
+         return false;
      }
      
      game_map[x][y] = local;
+     return true;
      
     }
-            
+        
+    public Location setXY(int x,int y)
+    {
+        if ((x>0 && x<widthX) && (y>0 && y<heightY))
+        {
+            //set location
+            locationX =x;
+            locationY =y;
+            return getCurrentLocation();
+        }
+        else
+        {
+            return null;
+        }
+                
+    }
+    
     public int[] getCurrentXY ()
     {
     int[] xy = {locationX,locationY}  ;
