@@ -5,7 +5,7 @@
  */
 package Engine.Debug;
 
-import Engine.Data.SaveLoad.Settings;
+import Engine.SaveLoad.Settings;
 
 /**
  *

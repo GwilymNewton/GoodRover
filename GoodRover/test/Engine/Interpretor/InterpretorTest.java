@@ -5,10 +5,10 @@
  */
 package Engine.Interpretor;
 
-import Engine.Data.Action;
-import Engine.Data.Command;
-import Engine.Data.Item;
-import Engine.Data.Target;
+import Engine.DataStructures.Action;
+import Engine.DataStructures.Command;
+import Engine.DataStructures.Item;
+import Engine.DataStructures.Target;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

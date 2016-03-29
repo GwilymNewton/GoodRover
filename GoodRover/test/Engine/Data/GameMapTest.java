@@ -5,6 +5,8 @@
  */
 package Engine.Data;
 
+import Engine.DataStructures.Location;
+import Engine.DataStructures.GameMap;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;

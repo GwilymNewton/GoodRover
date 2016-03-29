@@ -5,7 +5,7 @@
  */
 package goodrover;
 
-import Engine.Data.Command;
+import Engine.DataStructures.Command;
 import Engine.Interpretor.ConsoleIO;
 import Engine.Debug.Debugger;
 import Engine.Interpretor.Interpretor;

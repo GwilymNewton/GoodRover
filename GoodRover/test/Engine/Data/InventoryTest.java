@@ -5,6 +5,8 @@
  */
 package Engine.Data;
 
+import Engine.DataStructures.Item;
+import Engine.DataStructures.Inventory;
 import java.util.Arrays;
 import org.junit.After;
 import org.junit.AfterClass;
