@@ -26,7 +26,7 @@ public class ConsoleIO {
 
    public void outputText(String text)
    {
-   System.out.print(text);
+   System.out.println(text);
    }
  
    public String getInput()
