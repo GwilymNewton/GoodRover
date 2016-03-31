@@ -6,9 +6,12 @@
 package goodrover;
 
 import Engine.DataStructures.Command;
+import Engine.DataStructures.Game.Game;
 import Engine.Interpretor.ConsoleIO;
 import Engine.Debug.Debugger;
+import Engine.Engine;
 import Engine.Interpretor.Interpretor;
+import Games.Zork.Zork;
 
 /**
  *
@@ -27,6 +30,11 @@ public class GoodRover {
             Debugger.setDebug_level(Integer.parseInt(args[0]));
         }
         
+        
+        
+        Engine engine = new Engine(new Zork());
+        
+        engine.start();
         
         ConsoleIO console= ConsoleIO.getConsoleIO();
        

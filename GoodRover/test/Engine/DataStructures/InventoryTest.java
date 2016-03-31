@@ -3,10 +3,11 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Engine.Data;
+package Engine.DataStructures;
 
 import Engine.DataStructures.Item;
 import Engine.DataStructures.Inventory;
+import Engine.DataStructures.InventoryItem;
 import java.util.Arrays;
 import org.junit.After;
 import org.junit.AfterClass;
@@ -49,26 +50,27 @@ public class InventoryTest {
         //create inventory of size 5
         Inventory instance = new Inventory(5);
         
+        InventoryItem axe = new InventoryItem(Item.Axe);
         // Add five axes, should work
         for (int i=0; i<5;i++)
         {
-        boolean result = instance.AddItemtoInventory(Item.Axe);
+        boolean result = instance.AddItemtoInventory(axe);
         //check each add works
         assertTrue(result);
         }
         //check length & axes
-        Item[] items = instance.GetItems();
+        InventoryItem[] items = instance.GetItems();
         System.out.println("Instance: "+instance.toString());
         System.out.println("Items: "+Arrays.toString(items));
         //corrent length
          assertEquals(5,items.length);
         for (int i=0; i<5;i++)
         {
-        assertEquals(items[i],Item.Axe);
+        assertEquals(items[i],axe);
         }
         
         //add a sixth, should fail
-        boolean result = instance.AddItemtoInventory(Item.Axe);
+        boolean result = instance.AddItemtoInventory(new InventoryItem(Item.Axe));
         assertFalse(result);
     }
 
@@ -84,19 +86,20 @@ public class InventoryTest {
         // Add four axes, should work
         for (int i=0; i<4;i++)
         {
-        boolean result = instance.AddItemtoInventory(Item.Axe);
+        boolean result = instance.AddItemtoInventory(new InventoryItem(Item.Axe));
         //check each add works
         assertTrue(result);
         }
         //Add a test item to search for.
-        boolean result = instance.AddItemtoInventory(Item.Axe.TestItem);
+        InventoryItem testItem = new InventoryItem(Item.TestItem);
+        boolean result = instance.AddItemtoInventory(testItem);
         assertTrue(result);
         //remove it
-        Item result_itm = instance.RemoveItemFromInventory(Item.TestItem);
-        assertEquals(Item.TestItem,result_itm);      
+        InventoryItem result_itm = instance.RemoveItemFromInventory(testItem);
+        assertEquals(testItem,result_itm);      
         //try and remove it again
-        result_itm = instance.RemoveItemFromInventory(Item.TestItem);
-        assertEquals(Item.NullItem,result_itm); 
+        result_itm = instance.RemoveItemFromInventory(testItem);
+        assertEquals(null,result_itm); 
     }
 
     /**
@@ -106,7 +109,7 @@ public class InventoryTest {
     public void testInventoryFull() {
         System.out.println("InventoryFull");
         Inventory instance = new Inventory(1);
-        boolean result = instance.AddItemtoInventory(Item.Axe);
+        boolean result = instance.AddItemtoInventory(new InventoryItem(Item.Axe));
         assertTrue(instance.InventoryFull()); 
         
     }
@@ -119,11 +122,12 @@ public class InventoryTest {
         System.out.println("InventoryUsed");
         Inventory instance = new Inventory(2);
         assertEquals(0, instance.InventoryUsed()); 
-        boolean result = instance.AddItemtoInventory(Item.Axe);
+        boolean result = instance.AddItemtoInventory(new InventoryItem(Item.Axe));
         assertEquals(1, instance.InventoryUsed());
-        result = instance.AddItemtoInventory(Item.TestItem);
+        InventoryItem testItem = new InventoryItem(Item.TestItem);
+        result = instance.AddItemtoInventory(testItem);
         assertEquals(2, instance.InventoryUsed());
-        instance.RemoveItemFromInventory(Item.TestItem);
+        instance.RemoveItemFromInventory(testItem);
         assertEquals(1, instance.InventoryUsed());
         
     }
@@ -134,12 +138,14 @@ public class InventoryTest {
     @Test
     public void testGetItems() {
         System.out.println("GetItems");
-        Inventory instance = new Inventory(2); 
-        boolean result = instance.AddItemtoInventory(Item.Axe);
-        result = instance.AddItemtoInventory(Item.TestItem);
-        Item[] items =instance.GetItems();
-        assertEquals(Item.Axe, items[0]);
-        assertEquals(Item.TestItem, items[1]);
+        Inventory instance = new Inventory(2);
+        InventoryItem axe = new InventoryItem(Item.Axe);
+        InventoryItem testItem = new InventoryItem(Item.TestItem);
+        boolean result = instance.AddItemtoInventory(axe);
+        result = instance.AddItemtoInventory(testItem);
+        InventoryItem[] items =instance.GetItems();
+        assertEquals(axe, items[0]);
+        assertEquals(testItem, items[1]);
         assertEquals(2, items.length);
     }
     

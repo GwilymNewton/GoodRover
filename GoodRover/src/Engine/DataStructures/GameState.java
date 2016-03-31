@@ -15,21 +15,24 @@ public class GameState {
     private GameMap game_map;
     private Inventory inventory;
 
-    public GameState(GameMap game_map) {
+    public GameState(GameMap game_map, Inventory inventory) {
         this.game_map = game_map;
-        
-        int inventory_size = Settings.GetSettingInt("inventory_size");
-        if (inventory_size >0)
-        {
-            inventory = new Inventory(inventory_size);
-        }
-        else
-        {
-            //TODO: throw
-        }
+        this.inventory = inventory;
+        //sanity check these files
         
     }
+
+    public GameMap getGame_map() {
+        return game_map;
+    }
+
+    public Inventory getInventory() {
+        return inventory;
+    }
     
-    
+    public Location getCurrentLocation()
+    {
+        return game_map.getCurrentLocation();
+    }
     
 }

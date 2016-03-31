@@ -11,6 +11,7 @@ package Engine.DataStructures;
  */
 public enum Item {
     NullItem,
-    Axe, //Test Item
+    Axe,
+    Whisle,//Test Item
     TestItem,
 }

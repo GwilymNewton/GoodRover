@@ -9,14 +9,11 @@ package Engine.DataStructures;
  *
  * @author gwilymnewton
  */
-public enum Action {
-    NullAction,
-    Test_Util,
-    Test_Inventory,
-    Go,
-    Pickup,
-    Inventory,
-    Drop,
-    Hit,
-    Save,
+public class PointOfIntrest implements Examinable {
+
+    @Override
+    public String Examine() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
 }

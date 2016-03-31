@@ -13,6 +13,7 @@ public class Command {
     Action action = Action.NullAction;
     Item item = Item.NullItem;
     Target target = Target.NullTarget;
+    String result = "";
 
     public Command(Action action, Item item, Target target) {
         this.action = action;
@@ -49,6 +50,16 @@ public class Command {
         return "Action=" +action.toString()+" Item=" +item.toString()+ " Target= " +target.toString();
     }
 
+    public String getResult() {
+        return result;
+    }
+
+    public void setResult(String result) {
+        this.result = result;
+    }
+
+    
+    
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {

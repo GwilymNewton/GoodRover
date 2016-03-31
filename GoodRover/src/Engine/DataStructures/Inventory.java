@@ -15,7 +15,7 @@ import java.util.Arrays;
  */
 public class Inventory {
 
-private Item[] item_list;
+private InventoryItem[] item_list;
 int head;
 
     /**
@@ -25,8 +25,8 @@ int head;
     public Inventory(int size) {
         
         Debugger.debug(3, "Setting up Invetory, size ="+size+" head="+head);
-        this.item_list = new Item[size];
-        Arrays.fill(item_list, Item.NullItem);
+        this.item_list = new InventoryItem[size];
+        Arrays.fill(item_list, null);
         head =-1;
     }
 
@@ -35,7 +35,7 @@ int head;
      * @param item Item to all
      * @return True if item was added, false if the add failed.
      */
-    public boolean AddItemtoInventory(Item item)
+    public boolean AddItemtoInventory(InventoryItem item)
     {
         Debugger.debug(3, "Adding "+item +" to inventory, head="+head);
         //checks if full size 5 01234 l-1 =4
@@ -57,7 +57,7 @@ int head;
      * @param item Item to be removed
      * @return NullItem if item not found, else returns item
      */
-    public Item RemoveItemFromInventory(Item item)
+    public InventoryItem RemoveItemFromInventory(InventoryItem item)
     {
         //1) find item
         Debugger.debug(3, "Removeing "+item +" from inventory, head="+head);
@@ -75,7 +75,7 @@ int head;
         if (location==-1)
         {
             //we did not find the item
-            return Item.NullItem;
+            return null;
         }
         //2) Remove Item & shuffle inventory
         for (int j=location; j<head;j++)
@@ -83,7 +83,7 @@ int head;
         item_list[j]=item_list[j+1];    
         }
         //3) update head
-        item_list[head--]=Item.NullItem;
+        item_list[head--]=null;
         return item;
     }
     
@@ -97,7 +97,7 @@ int head;
         return (head+1);
     }
     
-    public Item[] GetItems()
+    public InventoryItem[] GetItems()
     {
         if (head !=0)
         {
@@ -109,9 +109,24 @@ int head;
         }
     }
     
+    
+    public boolean ProcessInventoryCommand(Command cmd){
+       cmd.setResult(this.toString());
+       //TODO deal with failures etc...
+        return true;
+    }
+           
+    
     @Override
     public String toString() {
-        return Arrays.toString(item_list);
+        StringBuilder output = new StringBuilder();
+        
+        for (int i=0; i<= head ; i++)
+        {
+           output.append(item_list[i].name);
+           output.append("\n");
+        }
+        return output.toString();
     }
     
     

@@ -3,14 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Engine.Data;
+package Engine.DataStructures;
 
 /**
  *
  * @author gwilymnewton
  */
-public enum Item {
-    NullItem,
-    Axe, //Test Item
-    TestItem,
+class Hashmap<T0, T1> {
+    
 }

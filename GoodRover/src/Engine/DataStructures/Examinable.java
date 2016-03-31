@@ -9,14 +9,7 @@ package Engine.DataStructures;
  *
  * @author gwilymnewton
  */
-public enum Action {
-    NullAction,
-    Test_Util,
-    Test_Inventory,
-    Go,
-    Pickup,
-    Inventory,
-    Drop,
-    Hit,
-    Save,
+public interface Examinable {
+    
+    public String Examine();
 }

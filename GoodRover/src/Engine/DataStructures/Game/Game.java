@@ -3,20 +3,17 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Engine.DataStructures;
+package Engine.DataStructures.Game;
+
+import Engine.DataStructures.GameState;
 
 /**
  *
  * @author gwilymnewton
  */
-public enum Action {
-    NullAction,
-    Test_Util,
-    Test_Inventory,
-    Go,
-    Pickup,
-    Inventory,
-    Drop,
-    Hit,
-    Save,
+public interface Game {
+    
+    
+   public GameState getInitState();
+    
 }

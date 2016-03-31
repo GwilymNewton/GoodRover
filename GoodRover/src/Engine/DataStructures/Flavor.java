@@ -3,19 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Engine.Data;
+package Engine.DataStructures;
 
 /**
  *
  * @author gwilymnewton
  */
-public enum Target {
- 
-    NullTarget,
-    TestTarget, // For testing only 
-    North,
-    South,
-    East,
-    West
+public class Flavor {
+    
+    Hashmap<Action,String> flavor_map;
+    
+public String getFlavor(Action a)
+{
+    return "";
+}
     
 }
