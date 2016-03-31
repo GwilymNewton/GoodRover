@@ -12,6 +12,7 @@ import Engine.DataStructures.GameState;
 import Engine.DataStructures.Inventory;
 import Engine.DataStructures.InventoryItem;
 import Engine.DataStructures.Item;
+import Games.Zork.Locations.WestofHouse;
 
 /**
  *
@@ -39,7 +40,10 @@ public  class Zork implements Game{
     
     private static  GameMap initMap()
     {
-    GameMap map = new GameMap(mapX,mapY);    
+    GameMap map = new GameMap(mapX,mapY);
+    map.setXY(31, 31);
+    map.SetLocation(new WestofHouse(), 31, 31);
+    
     return  map;
     }
     

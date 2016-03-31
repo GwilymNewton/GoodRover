@@ -5,6 +5,7 @@
  */
 package Engine.DataStructures;
 
+import Engine.Debug.Debugger;
 import java.util.ArrayList;
 
 /**
@@ -13,10 +14,13 @@ import java.util.ArrayList;
  */
 public class Location {
  
-    String name="null location";
-    ArrayList<InventoryItem> items;
-    ArrayList<Event> events;
-    ArrayList<PointOfIntrest> pois;
+    protected String name="null location";
+    protected ArrayList<InventoryItem> items;
+    protected ArrayList<Event> events;
+    protected ArrayList<PointOfIntrest> pois;
+    protected Flavor flavor;
+    
+    
     
     public void enter()
     {
@@ -35,6 +39,7 @@ public class Location {
             case Go :return Go(cmd, map);
             case Pickup: return pickup(cmd, inventory);
             case Drop:  return drop(cmd, inventory); 
+            case Look: return look(cmd,inventory);
             default: return event(cmd, map, inventory);
      }    
     }
@@ -63,6 +68,18 @@ public class Location {
     
     private boolean examine(Command cmd)
     {
+        return true;
+    }
+    
+    private boolean look(Command cmd, Inventory inventory)
+    {
+        Debugger.debug(5, "Builing \"Look\" output in "+this.getClass().getName());
+        StringBuilder output = new StringBuilder();
+        output.append(name);
+        output.append("\n\n");
+        output.append(flavor.getFlavor(Action.Look));
+        
+        cmd.setResult(output.toString());
         return true;
     }
 

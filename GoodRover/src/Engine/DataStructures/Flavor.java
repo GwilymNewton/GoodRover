@@ -5,17 +5,28 @@
  */
 package Engine.DataStructures;
 
+import java.util.HashMap;
+
 /**
  *
  * @author gwilymnewton
  */
 public class Flavor {
     
-    Hashmap<Action,String> flavor_map;
+    HashMap<Action,String> flavor_map;
+
+    public Flavor() {
+        flavor_map = new HashMap<>();
+    }
     
 public String getFlavor(Action a)
 {
-    return "";
+    return flavor_map.get(a);
+}
+
+public String setFlavor(Action a,String s)
+{
+    return flavor_map.put(a, s);
 }
     
 }

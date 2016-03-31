@@ -19,4 +19,5 @@ public enum Action {
     Drop,
     Hit,
     Save,
+    Look,
 }

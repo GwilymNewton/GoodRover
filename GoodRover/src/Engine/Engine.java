@@ -50,7 +50,9 @@ public class Engine {
     
    public void start()
    {
-       
+       Command first_look = new Command(Action.Look,Item.NullItem,Target.NullTarget);
+       processCommand(first_look);
+       console.outputText(first_look.getResult()); 
        while(true)
        {
        Debugger.debug(2, "Fetching a new command");    
