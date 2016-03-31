@@ -5,11 +5,14 @@
  */
 package Engine;
 
+import Engine.DataStructures.Action;
 import Engine.DataStructures.Command;
 import Engine.DataStructures.Game.Game;
 import Engine.DataStructures.GameMap;
 import Engine.DataStructures.GameState;
 import Engine.DataStructures.Inventory;
+import Engine.DataStructures.Item;
+import Engine.DataStructures.Target;
 import Engine.Debug.Debugger;
 import Engine.Interpretor.ConsoleIO;
 import Engine.Interpretor.Interpretor;
@@ -64,6 +67,15 @@ public class Engine {
             
     private boolean processCommand(Command cmd)
     {
+        if ((cmd.getAction().equals(Action.NullAction))&&
+                (cmd.getItem().equals(Item.NullItem))&&
+                (cmd.getTarget().equals(Target.NullTarget)))
+                {
+                //action is null
+                    cmd.setResult("No Command words found");
+                    return false;
+                }
+        
         {
          switch (cmd.getAction()) 
          {
