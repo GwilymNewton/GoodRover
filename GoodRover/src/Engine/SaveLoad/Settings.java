@@ -16,7 +16,7 @@ public abstract class Settings {
     
     private static HashMap<String,String> settings =new HashMap<String,String>() {{
     put("inventory_size","10");
-    put("debug_level","0");  
+    put("debug_level","5");  
     }};
 
     /**

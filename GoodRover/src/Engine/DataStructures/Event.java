@@ -5,21 +5,36 @@
  */
 package Engine.DataStructures;
 
+import java.util.HashSet;
+
 /**
  *
  * @author gwilymnewton
  */
 public class Event {
  
-    protected Command command;
+    protected HashSet<Command> commands;
     protected State state = State.NullState;
     protected Flavor flavor;
     protected boolean verbose = false;
+
+    public Event() {
+        commands = new HashSet<>();
+        flavor = new Flavor(); 
+    }
+    
     
     
     public boolean isTriggered(Command cmd)
     {
-    return (cmd.equals(this.command));
+        for (Command c: commands)
+        {
+            if (c.equals(cmd))
+            {
+                return true;
+            }
+        }
+        return false;
     }
     
     public boolean unfold(GameMap map, Inventory inventory, Location local, Command cmd)

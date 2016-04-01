@@ -20,5 +20,5 @@ public enum Action {
     Hit,
     Save,
     Look, 
-    Open, Examine,
+    Open, Examine, Close
 }

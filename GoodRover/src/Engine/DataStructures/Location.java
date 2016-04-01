@@ -35,13 +35,15 @@ public class Location {
     
     public boolean ProcessCommand(Command cmd, GameMap map, Inventory inventory)
     {
+        //check for events fist
+        boolean rtn = event(cmd, map, inventory);
      switch (cmd.getAction()) 
      {
             case Go :return Go(cmd, map);
             case Pickup: return pickup(cmd, inventory);
             case Drop:  return drop(cmd, inventory); 
             case Look: return look(cmd,inventory);
-            default: return event(cmd, map, inventory);
+            default: return rtn;
      }    
     }
     
@@ -133,6 +135,11 @@ public class Location {
    public void addItem(InventoryItem item)
    {
        this.items.add(item);
+   }
+   
+    public void removeItem(InventoryItem item)
+   {
+       this.items.remove(item);
    }
     
     @Override

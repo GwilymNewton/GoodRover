@@ -12,5 +12,5 @@ package Engine.DataStructures;
 public enum State {
  NullState,
  Open,
- Closed, OpenContainsLeaflet,
+ Closed, OpenContainsLeaflet, ClosedContainsLeaflet,
 }
