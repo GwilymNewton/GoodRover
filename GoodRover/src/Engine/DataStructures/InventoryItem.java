@@ -34,9 +34,6 @@ public class InventoryItem implements Examinable {
         return state;
     }
 
-    public Flavor getFlavor() {
-        return flavor;
-    }
     
     
     

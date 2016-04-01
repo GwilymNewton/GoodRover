@@ -121,12 +121,32 @@ int head;
         return false;
     }
     
+    public InventoryItem getItem(Item item)
+    {
+    for (int i=0; i<= head ; i++)
+        {
+           if (item_list[i].name.equals(item))
+           {
+               return item_list[i];
+           }
+        }
+        return null;
+    }
+    
     public boolean ProcessInventoryCommand(Command cmd){
        cmd.setResult(this.toString());
        //TODO deal with failures etc...
         return true;
     }
-           
+    public boolean ProcessExamineCommand(Command cmd){
+       if (containsItem(cmd.getItem()))
+       {
+       cmd.setResult(getItem(cmd.item).Examine());
+       return true;    
+       }
+       
+       return false; 
+    }       
     
     @Override
     public String toString() {

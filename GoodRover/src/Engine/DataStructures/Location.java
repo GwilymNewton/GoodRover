@@ -117,7 +117,6 @@ public class Location {
         output.append("\n\n");
         output.append(flavor.getFlavor(Action.Look));
         output.append("\n");
-        System.out.println(events);
         for (Event e : events)
         {
             if (e.verbose)

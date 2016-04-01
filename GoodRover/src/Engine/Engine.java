@@ -91,7 +91,8 @@ public class Engine {
              case Test_Util: return utilityCommand(cmd);
             //inventory commands Use, eat etc....
              case Test_Inventory: return inventoryCommand(cmd); 
-             case Inventory: return inventoryCommand(cmd); 
+             case Inventory: return inventoryCommand(cmd);
+             case Examine: return ExamineCommand(cmd);
             // default to location  
              default: return state.getCurrentLocation().ProcessCommand(cmd, state.getGame_map(), state.getInventory());
          }    
@@ -111,5 +112,24 @@ public class Engine {
              case Inventory: return state.getInventory().ProcessInventoryCommand(cmd);
              default: return false;
          }
+    }
+
+    private boolean ExamineCommand(Command cmd) {
+        
+        if (cmd.getAction().equals(Action.Examine)
+                &&!cmd.getItem().equals(Item.NullItem)
+                &&cmd.getTarget().equals(Target.NullTarget))
+        {
+            state.getInventory().ProcessExamineCommand(cmd);
+            return true;
+        }
+        else if (cmd.getAction().equals(Action.Examine)
+                &&cmd.getItem().equals(Item.NullItem)
+                &&!cmd.getTarget().equals(Target.NullTarget))
+        {
+           //Examine a POI pass to location 
+        }
+                
+     return false;   
     }
 }
