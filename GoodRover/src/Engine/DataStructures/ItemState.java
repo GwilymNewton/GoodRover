@@ -9,16 +9,6 @@ package Engine.DataStructures;
  *
  * @author gwilymnewton
  */
-public enum Action {
-    NullAction,
-    Test_Util,
-    Test_Inventory,
-    Go,
-    Pickup,
-    Inventory,
-    Drop,
-    Hit,
-    Save,
-    Look, 
-    Open, Examine,
+public enum ItemState {
+    
 }

@@ -109,6 +109,17 @@ int head;
         }
     }
     
+    public boolean containsItem(Item item)
+    {
+    for (int i=0; i<= head ; i++)
+        {
+           if (item_list[i].name.equals(item))
+           {
+               return true;
+           }
+        }
+        return false;
+    }
     
     public boolean ProcessInventoryCommand(Command cmd){
        cmd.setResult(this.toString());

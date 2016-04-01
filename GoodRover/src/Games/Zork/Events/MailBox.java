@@ -11,12 +11,11 @@ import Engine.DataStructures.Event;
 import Engine.DataStructures.Flavor;
 import Engine.DataStructures.GameMap;
 import Engine.DataStructures.Inventory;
-import Engine.DataStructures.InventoryItem;
 import Engine.DataStructures.Item;
 import Engine.DataStructures.Location;
 import Engine.DataStructures.State;
 import Engine.DataStructures.Target;
-import java.awt.Desktop;
+import Games.Zork.Items.Leaflet;
 
 /**
  *
@@ -41,7 +40,7 @@ public class MailBox extends Event {
         if (this.state.equals(State.Closed))
         {
         this.state = State.OpenContainsLeaflet;
-        local.addItem(new InventoryItem(Item.leaflet));
+        local.addItem(new Leaflet());
         cmd.setResult("You open the mailbox, revealing a small leaflet.");
         return true;
         }

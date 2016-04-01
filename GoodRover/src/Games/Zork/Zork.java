@@ -6,7 +6,7 @@
 package Games.Zork;
 
 import static Engine.DataStructures.Action.Inventory;
-import Engine.DataStructures.Game.Game;
+import Engine.DataStructures.Game;
 import Engine.DataStructures.GameMap;
 import Engine.DataStructures.GameState;
 import Engine.DataStructures.Inventory;

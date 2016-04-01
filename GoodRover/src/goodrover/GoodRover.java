@@ -6,7 +6,7 @@
 package goodrover;
 
 import Engine.DataStructures.Command;
-import Engine.DataStructures.Game.Game;
+import Engine.DataStructures.Game;
 import Engine.Interpretor.ConsoleIO;
 import Engine.Debug.Debugger;
 import Engine.Engine;

@@ -7,6 +7,7 @@ package Engine.DataStructures;
 
 import Engine.Debug.Debugger;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 /**
  *
@@ -52,6 +53,35 @@ public class Location {
     
     private boolean pickup(Command cmd, Inventory inventory)
     {
+        Debugger.debug(4, "Processing picup Command");    
+        if ((cmd.action.equals(Action.Pickup))
+                &&!(cmd.getItem().equals(Item.NullItem))
+                )
+        {
+            Debugger.debug(5, "Action, and Item AOK, seaching for item");
+            Iterator<InventoryItem> iter = items.iterator();
+            while(iter.hasNext())
+            {
+               InventoryItem item = iter.next();
+               if (item.getName().equals(cmd.getItem()))
+               {
+                   Debugger.debug(5, "Item Found");
+                   iter.remove();
+                   inventory.AddItemtoInventory(item);
+                   cmd.setResult("Taken.");
+                   return true;
+               }
+            }
+            Debugger.debug(4, "Item not found");
+            cmd.setResult("You can't see any such thing.");
+            return false;
+        }
+        else
+        {
+            
+            //TODO deal with failure
+        }
+    
     
     return true;    
     }

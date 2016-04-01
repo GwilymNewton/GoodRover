@@ -3,22 +3,19 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package Engine.DataStructures;
+package Games.Zork.Items;
+
+import Engine.DataStructures.InventoryItem;
+import Engine.DataStructures.Item;
 
 /**
  *
  * @author gwilymnewton
  */
-public enum Action {
-    NullAction,
-    Test_Util,
-    Test_Inventory,
-    Go,
-    Pickup,
-    Inventory,
-    Drop,
-    Hit,
-    Save,
-    Look, 
-    Open, Examine,
+public class Leaflet  extends InventoryItem{
+    
+    public Leaflet() {
+        super(Item.leaflet);
+    }
+    
 }

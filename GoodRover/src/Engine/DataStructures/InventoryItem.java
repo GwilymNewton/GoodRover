@@ -5,20 +5,53 @@
  */
 package Engine.DataStructures;
 
+import Engine.DataStructures.ItemState;
+
 /**
  *
  * @author gwilymnewton
  */
 public class InventoryItem implements Examinable {
     
-    Item name; // The Item this coridpondes too
-
+    protected Item name; // The Item this coridpondes too
+    protected State state = State.NullState;
+    protected Flavor flavor;
+    
     public InventoryItem(Item name) {
         this.name = name;
     }
 
-    @Override
-    public String Examine() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    public boolean checkItem(Item item)
+    {
+        return item.equals(this.name);
     }
+
+    public Item getName() {
+        return name;
+    }
+
+    public State getState() {
+        return state;
+    }
+
+    public Flavor getFlavor() {
+        return flavor;
+    }
+    
+    
+    
+    @Override
+    public String Examine() 
+    {
+
+        if (this.state ==  State.NullState)
+        {
+        return flavor.getFlavor(Action.Examine);
+        }
+        else
+        {
+            return flavor.getFlavor(Action.Examine, state);
+        }    
+    }
+    
 }

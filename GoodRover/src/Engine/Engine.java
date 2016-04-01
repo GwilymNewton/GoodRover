@@ -7,7 +7,7 @@ package Engine;
 
 import Engine.DataStructures.Action;
 import Engine.DataStructures.Command;
-import Engine.DataStructures.Game.Game;
+import Engine.DataStructures.Game;
 import Engine.DataStructures.GameMap;
 import Engine.DataStructures.GameState;
 import Engine.DataStructures.Inventory;
@@ -62,13 +62,19 @@ public class Engine {
        Debugger.debug(2, "Processing Command");
        processCommand(cmd);
        //TODO check command has not failed
-       Debugger.debug(5, "Result ="+cmd.getResult());
+       //Debugger.debug(5, "Result ="+cmd.getResult());
        console.outputText(cmd.getResult());       
        }    
    }
             
     private boolean processCommand(Command cmd)
     {
+        if(cmd.getAction().equals(Action.NullAction))
+        {
+            cmd.setResult("That's not a verb I recognise.");
+            return false;
+        }
+        
         if ((cmd.getAction().equals(Action.NullAction))&&
                 (cmd.getItem().equals(Item.NullItem))&&
                 (cmd.getTarget().equals(Target.NullTarget)))
