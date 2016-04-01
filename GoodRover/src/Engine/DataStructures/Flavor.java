@@ -5,6 +5,7 @@
  */
 package Engine.DataStructures;
 
+import Engine.Debug.Debugger;
 import java.util.HashMap;
 
 /**
@@ -13,7 +14,7 @@ import java.util.HashMap;
  */
 public class Flavor {
     
-    HashMap<Action,String> flavor_map;
+    HashMap<FlavorKey,String> flavor_map;
 
     public Flavor() {
         flavor_map = new HashMap<>();
@@ -21,12 +22,29 @@ public class Flavor {
     
 public String getFlavor(Action a)
 {
-    return flavor_map.get(a);
+    FlavorKey key = new FlavorKey(a,State.NullState);
+    Debugger.debug(5, "Getting Flavor with key "+key);
+    return flavor_map.get(key);
 }
 
 public String setFlavor(Action a,String s)
 {
-    return flavor_map.put(a, s);
+    FlavorKey key = new FlavorKey(a,State.NullState);
+    Debugger.debug(5, "Setting Flavor with key "+key);
+    return flavor_map.put(key, s);
+}
+
+public String getFlavor(Action a,State s)
+{
+    FlavorKey key = new FlavorKey(a,s);
+    return flavor_map.get(key);
+}
+
+public String setFlavor(Action a,State str,String s)
+{
+    FlavorKey key = new FlavorKey(a,str);
+    
+    return flavor_map.put(key, s);
 }
     
 }

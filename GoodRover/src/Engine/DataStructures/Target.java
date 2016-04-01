@@ -16,6 +16,7 @@ public enum Target {
     North,
     South,
     East,
-    West
+    West,
+    Mailbox,
     
 }

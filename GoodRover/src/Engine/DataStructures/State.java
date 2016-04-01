@@ -9,10 +9,8 @@ package Engine.DataStructures;
  *
  * @author gwilymnewton
  */
-public enum Item {
-    NullItem,
-    Axe, // Test Item
-    Whisle,//Test Item
-    TestItem,
-    leaflet,
+public enum State {
+ NullState,
+ Open,
+ Closed, OpenContainsLeaflet,
 }

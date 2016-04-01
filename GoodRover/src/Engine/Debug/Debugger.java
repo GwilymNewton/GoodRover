@@ -29,7 +29,7 @@ public class Debugger {
 {
     if (level <= debug_level)
     {
-        System.out.println(text);
+        System.out.println("\u001B[31m"+text);
     }
 }
 

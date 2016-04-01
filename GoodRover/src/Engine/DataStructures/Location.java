@@ -15,10 +15,10 @@ import java.util.ArrayList;
 public class Location {
  
     protected String name="null location";
-    protected ArrayList<InventoryItem> items;
-    protected ArrayList<Event> events;
-    protected ArrayList<PointOfIntrest> pois;
-    protected Flavor flavor;
+    protected ArrayList<InventoryItem> items; //what you can take with you
+    protected ArrayList<Event> events; //what you can interact with
+    protected ArrayList<PointOfIntrest> pois; //what you can look at but not touch
+    protected Flavor flavor; // general flavor text of location
     
     
     
@@ -63,7 +63,15 @@ public class Location {
     
     private boolean event(Command cmd, GameMap map, Inventory inventory)
     {
-        return true;
+        for (Event e : events)
+        {
+            if (e.isTriggered(cmd))
+            {
+                Debugger.debug(4, "Event "+e.getClass().getName()+" Tiggered");
+                return e.unfold(map, inventory, this, cmd);
+            }
+        }
+        return false;
     }
     
     private boolean examine(Command cmd)
@@ -78,11 +86,26 @@ public class Location {
         output.append(name);
         output.append("\n\n");
         output.append(flavor.getFlavor(Action.Look));
+        output.append("\n");
+        System.out.println(events);
+        for (Event e : events)
+        {
+            if (e.verbose)
+            {
+                output.append(e.getFlavor(cmd));
+                output.append("\n");
+            }
+        }
         
         cmd.setResult(output.toString());
         return true;
     }
 
+   public void addItem(InventoryItem item)
+   {
+       this.items.add(item);
+   }
+    
     @Override
     public String toString() {
         return super.toString(); //To change body of generated methods, choose Tools | Templates.

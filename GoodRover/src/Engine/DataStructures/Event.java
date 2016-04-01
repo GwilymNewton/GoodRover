@@ -11,12 +11,38 @@ package Engine.DataStructures;
  */
 public class Event {
  
-    Command command;
+    protected Command command;
+    protected State state = State.NullState;
+    protected Flavor flavor;
+    protected boolean verbose = false;
     
-    public String unfold()
+    
+    public boolean isTriggered(Command cmd)
     {
-     
-    return "null string";    
+    return (cmd.equals(this.command));
     }
+    
+    public boolean unfold(GameMap map, Inventory inventory, Location local, Command cmd)
+    {
+        return true;
+    }
+    
+    public String getFlavor(Command cmd)
+    {
+        if (this.state ==  State.NullState)
+        {
+        return flavor.getFlavor(cmd.getAction());
+        }
+        else
+        {
+            return flavor.getFlavor(cmd.getAction(), state);
+        }    
+    }
+
+    public boolean isVerbose() {
+        return verbose;
+    }
+    
+    
     
 }

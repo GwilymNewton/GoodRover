@@ -62,7 +62,7 @@ public class Engine {
        Debugger.debug(2, "Processing Command");
        processCommand(cmd);
        //TODO check command has not failed
-       Debugger.debug(2, "Result ="+cmd.getResult());
+       Debugger.debug(5, "Result ="+cmd.getResult());
        console.outputText(cmd.getResult());       
        }    
    }
